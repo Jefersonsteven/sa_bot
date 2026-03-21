@@ -1,15 +1,6 @@
 import config from "dotenv"; // Carga de variables de entorno
 import messageHandler from "../services/messageHandler.js"; // Servicio para manejar los mensajes entrantes
 
-
-// Ruta para manejar las solicitudes POST
-app.post("/", (req, res) => {
-  const timestamp = new Date().toISOString().replace("T", " ").slice(0, 19);
-  console.log(`\n\nWebhook received ${timestamp}\n`);
-  console.log(JSON.stringify(req.body, null, 2));
-  res.status(200).end();
-});
-
 class WebhookController {
   // Método para manejar las solicitudes GET (verificación del webhook)
   verifyWebhook(req, res) {

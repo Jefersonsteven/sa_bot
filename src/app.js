@@ -3,9 +3,6 @@ import express from "express"; // Framework para crear el servidor
 import config from "./config/env.js"; // Configuración de variables de entorno
 import webhookRoutes from "./routes/webhookRoutes.js"; // Rutas del webhook
 
-// Cargamos las variables de entorno desde el archivo .env.local
-dotenv.config({ path: ".env.local" });
-
 // Creamos una instancia de Express
 const app = express();
 app.use(express.json()); // Middleware para parsear el cuerpo de las solicitudes como JSON  

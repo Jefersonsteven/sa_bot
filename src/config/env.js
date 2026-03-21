@@ -1,7 +1,7 @@
 import dotenv from "dotenv"; // Carga de variables de entorno
 
-// Cargamos las variables de entorno desde el archivo .env.local
-dotenv.config({ path: ".env.local" });
+// Cargamos las variables de entorno desde el archivo .env
+dotenv.config({ path: ".env" });
 
 export default {
     API_VERSION: process.env.API_VERSION,
