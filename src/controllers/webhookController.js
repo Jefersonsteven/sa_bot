@@ -10,7 +10,7 @@ class WebhookController {
       "hub.verify_token": token,
     } = req.query;
 
-    if (mode === "subscribe" && token === config.WEBHOOK_VERIFY_TOKEN) {
+    if (mode === "subscribe" && token === config.WHATSAPP_WEBHOOK_VERIFY_TOKEN) {
       console.log("WEBHOOK VERIFIED");
       res.status(200).send(challenge);
     } else {
