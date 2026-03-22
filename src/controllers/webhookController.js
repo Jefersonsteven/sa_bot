@@ -20,11 +20,11 @@ class WebhookController {
 
  // Método para manejar las solicitudes POST (mensajes entrantes)
   async handleIncoming(req, res) {
-    const timestamp = new Date().toISOString().replace("T", " ").slice(0, 19);
-    console.log(`\n\nWebhook received ${timestamp}\n`);
-    console.log(JSON.stringify(req.body, null, 2));
-    // TODO: Procesar mensajes entrantes utilizando el servicio messageHandler
-    res.status(200).end();
+    const message = req.body.entry?.[0]?.changes?.[0]?.value?.messages?.[0]; // Extraemos el mensaje del cuerpo de la solicitud
+    if (message) {
+      await messageHandler.handleIncomingMessage(message);
+    }
+    res.sendStatus(200); // Respondemos con un estado 200 para indicar que la solicitud fue procesada correctamente
   }
 }
 
