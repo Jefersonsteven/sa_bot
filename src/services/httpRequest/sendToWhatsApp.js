@@ -2,7 +2,7 @@ import axios from "axios"; // Librería para realizar solicitudes HTTP
 import config from "../../config/env.js"; // Configuración de variables de entorno
 
 const sendToWhatsApp = async (data) => {
-    const baseUrl = `https://graph.facebook.com/${config.WHATSAPP_API_VERSION}/${config.WHATSAPP_USER_PHONE_NUMBER}/messages`;
+    const baseUrl = `https://graph.facebook.com/${config.WHATSAPP_API_VERSION}/${config.WHATSAPP_BUSINESS_PHONE_NUMBER_ID}/messages`;
     const headers = {
         Authorization: `Bearer ${config.WHATSAPP_ACCESS_TOKEN}`,
     }
