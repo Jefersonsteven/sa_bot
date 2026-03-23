@@ -21,8 +21,9 @@ class WebhookController {
  // Método para manejar las solicitudes POST (mensajes entrantes)
   async handleIncoming(req, res) {
     const message = req.body.entry?.[0]?.changes?.[0]?.value?.messages?.[0]; // Extraemos el mensaje del cuerpo de la solicitud
+    const senderInfo = req.body.entry?.[0]?.changes?.[0]?.value?.contacts?.[0]; // Extraemos la información del remitente
     if (message) {
-      await messageHandler.handleIncomingMessage(message);
+      await messageHandler.handleIncomingMessage(message, senderInfo);
     }
     res.sendStatus(200); // Respondemos con un estado 200 para indicar que la solicitud fue procesada correctamente
   }
